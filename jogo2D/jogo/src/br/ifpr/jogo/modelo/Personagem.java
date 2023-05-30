@@ -3,61 +3,55 @@ package br.ifpr.jogo.modelo;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-import java.awt.Image;
 import javax.swing.ImageIcon;
-import javax.swing.SwingUtilities;
 
 public class Personagem {
-    private int posicaoEmX;
-    private int posicaoEmY;
-    private int deslocamentoEmX;
-    private int deslocamentoEmY;
+    private int posicaoEmX, posicaoEmY;
+    private int deslocamentoEmX, deslocamentoEmY;
+    private int larguraImagem, alturaImagem;
     private Image imagem;
-    private int larguraImagem;
-    private int alturaImagem;
-    private boolean eVisivel;
 
     public Personagem() {
-        this.posicaoEmX = 100;
-        this.posicaoEmY = 100;
-        this.eVisivel = true;
+        this.posicaoEmX = 300;
+        this.posicaoEmY = 450;
     }
 
     public void carregar() {
-        ImageIcon carregando = new ImageIcon("imagens\\pnave.png");
-        this.imagem = carregando.getImage();
+        ImageIcon carregador = new ImageIcon("imagens\\pnave.png");
+        this.imagem = carregador.getImage();
         this.alturaImagem = this.imagem.getWidth(null);
         this.larguraImagem = this.imagem.getHeight(null);
     }
 
-    public void update() {
+    public void atuzaliza() {
         posicaoEmX += deslocamentoEmX;
         posicaoEmY += deslocamentoEmY;
     }
 
     public Rectangle getBounds() {
         return new Rectangle(posicaoEmX, posicaoEmY, larguraImagem, alturaImagem);
+
     }
 
-    public void keyPressed(KeyEvent teclado) {
+    public void teclaP(KeyEvent teclado) {
         int tecla = teclado.getKeyCode();
 
         if (tecla == KeyEvent.VK_UP) {
-            deslocamentoEmY = -15;
+            deslocamentoEmY = -10;
         }
         if (tecla == KeyEvent.VK_DOWN) {
-            deslocamentoEmY = 15;
+            deslocamentoEmY = 10;
         }
 
         if (tecla == KeyEvent.VK_LEFT) {
-            deslocamentoEmX = -15;
+            deslocamentoEmX = -10;
         }
         if (tecla == KeyEvent.VK_RIGHT) {
-            deslocamentoEmX = 15;
+            deslocamentoEmX = 10;
         }
     }
 
-    public void keyReleased(KeyEvent teclado) {
+    public void tecla(KeyEvent teclado) {
         int tecla = teclado.getKeyCode();
 
         if (tecla == KeyEvent.VK_UP || tecla == KeyEvent.VK_DOWN) {
@@ -66,8 +60,6 @@ public class Personagem {
         if (tecla == KeyEvent.VK_LEFT || tecla == KeyEvent.VK_RIGHT) {
             deslocamentoEmX = 0;
         }
-        Fase fase = (Fase) SwingUtilities.getRoot(teclado.getComponent());
-        fase.repaint();
     }
 
     public int getPosicaoEmX() {
@@ -124,14 +116,6 @@ public class Personagem {
 
     public void setAlturaImagem(int alturaImagem) {
         this.alturaImagem = alturaImagem;
-    }
-
-    public boolean iseVisivel() {
-        return eVisivel;
-    }
-
-    public void seteVisivel(boolean eVisivel) {
-        this.eVisivel = eVisivel;
     }
 
 }
