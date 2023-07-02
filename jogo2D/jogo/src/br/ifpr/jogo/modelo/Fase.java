@@ -20,6 +20,8 @@ public class Fase extends JPanel implements ActionListener, KeyListener {
     private Personagem personagem;
     private Timer timer;
     private static final int ALTURA_DA_JANELA = 542;
+    private ArrayList<Inimigo1> inimigos;
+    private static final int QTDE_DE_INIMIGOS = 55;
 
     public Fase() {
         setFocusable(true);
@@ -31,11 +33,23 @@ public class Fase extends JPanel implements ActionListener, KeyListener {
         personagem = new Personagem();
         personagem.carregar();
 
+        this.inicializaInimigo1();
+
         addKeyListener(this);
 
         timer = new Timer(DELAY, this);
         timer.start();
 
+    }
+
+    public void inicializaInimigo1() {
+        inimigos = new ArrayList<Inimigo1>();
+        for (int i = 0; i < QTDE_DE_INIMIGOS; i++) {
+            int y = (int) (Math.random() * 800 - 1024);
+            int x = (int) (Math.random() * 650 + 30);
+            Inimigo1 inimigo1 = new Inimigo1(x, y);
+            inimigos.add(inimigo1);
+        }
     }
 
     public void paint(Graphics g) {
@@ -52,6 +66,11 @@ public class Fase extends JPanel implements ActionListener, KeyListener {
             graficos.drawImage(tiro.getImagem(), tiro.getPosicaoEmX(), tiro.getPosicaoEmY(), this);
         }
 
+        for (Inimigo1 inimigo1 : inimigos) {
+            inimigo1.carregar();
+            graficos.drawImage(inimigo1.getImagem(), inimigo1.getPosicaoEmX(), inimigo1.getPosicaoEmY(), this);
+        }
+
         g.dispose();
     }
 
@@ -65,6 +84,20 @@ public class Fase extends JPanel implements ActionListener, KeyListener {
                 tiros.remove(i);
             } else {
                 tiros.get(i).atualizar();
+            }
+        }
+
+        for (int i = 0; i < inimigos.size(); i++) {
+            if (inimigos.get(i).getPosicaoEmY() > 542) {
+
+                inimigos.remove(i);
+
+                int y = (int) (Math.random() * 800 - 1024);
+                int x = (int) (Math.random() * 650 + 30);
+                Inimigo1 inimigo1 = new Inimigo1(x, y);
+                inimigos.add(inimigo1);
+            } else {
+                inimigos.get(i).atualizar();
             }
         }
 
@@ -87,6 +120,6 @@ public class Fase extends JPanel implements ActionListener, KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'keyTyped'");
+        // throw new UnsupportedOperationException("Unimplemented method 'keyTyped'");
     }
 }
