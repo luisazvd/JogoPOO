@@ -1,11 +1,11 @@
 package br.ifpr.jogo.principal;
 
 import javax.swing.JFrame;
-import br.ifpr.jogo.modelo.Fase;
+import br.ifpr.jogo.modelo.PrimeiraFase;
 
 public class Principal extends JFrame {
     public Principal() {
-        Fase fase = new Fase();
+        PrimeiraFase fase = new PrimeiraFase();
         super.add(fase);
         super.setTitle("Invaders Universe");
         super.setSize(1100, 542);
