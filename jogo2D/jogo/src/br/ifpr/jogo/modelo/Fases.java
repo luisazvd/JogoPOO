@@ -13,14 +13,16 @@ public abstract class Fases extends JPanel implements ActionListener, KeyListene
     public static final int DELAY = 5;
     public static final int ALTURA_DA_JANELA = 542;
     public static final int QUANTIDADE_INIMIGOS = 55;
+    public int QUANTIDADE_NVMAE = 2;
 
-    protected Image fundo;
+    protected Image fundo1, fundo2;
     protected Personagem personagem;
     protected Timer timer;
     protected boolean podeAtirar = true;
     protected ArrayList<Inimigo> inimigos;
+    protected ArrayList<NaveMae> naveMaes;
     protected int temporizador = 0;
-    private boolean emJogo = true;
+    boolean emJogo = true;
 
     public Fases() {
         setFocusable(true);
@@ -30,6 +32,8 @@ public abstract class Fases extends JPanel implements ActionListener, KeyListene
     }
 
     public abstract void inicializaInimigos();
+
+    public abstract void inicializaElementosGraficosAdicionais();
 
     public abstract void verificarColisoes();
 

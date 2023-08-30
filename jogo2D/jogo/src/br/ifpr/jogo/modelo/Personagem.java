@@ -1,5 +1,6 @@
 package br.ifpr.jogo.modelo;
 
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class Personagem extends ElementoGrafico {
     private int deslocamentoEmY;
     private ArrayList<Tiro> tiros;
     private ArrayList<SuperTiro> superTiros;
+    public int vidas;
 
     public Personagem() {
         this.deslocamentoEmX = 0;
@@ -21,11 +23,12 @@ public class Personagem extends ElementoGrafico {
         setPosicaoEmY(POSICAO_INICIAL_EM_Y);
         this.tiros = new ArrayList<Tiro>();
         this.superTiros = new ArrayList<SuperTiro>();
+        this.vidas = 3;
     }
 
     public void atualizar() {
-        this.setPosicaoEmX((this.getPosicaoEmX() + this.getDeslocamentoEmX()));
-        this.setPosicaoEmY((this.getPosicaoEmY() + this.getDeslocamentoEmY()));
+            this.setPosicaoEmX((this.getPosicaoEmX() + this.getDeslocamentoEmX()));
+            this.setPosicaoEmY((this.getPosicaoEmY() + this.getDeslocamentoEmY()));
     }
 
     public void carregar() {
@@ -35,6 +38,7 @@ public class Personagem extends ElementoGrafico {
         setLarguraImagem(getImagem().getHeight(null));
         setPosicaoEmX(POSICAO_INICIAL_EM_X);
         setPosicaoEmY(POSICAO_INICIAL_EM_Y);
+
     }
 
     public void mover(KeyEvent tecla) {
@@ -136,6 +140,18 @@ public class Personagem extends ElementoGrafico {
 
     public void setSuperTiros(ArrayList<SuperTiro> superTiros) {
         this.superTiros = superTiros;
+    }
+
+    public void reduzirVida() {
+        vidas--;
+    }
+
+    public int getVidas() {
+        return vidas;
+    }
+
+    public void reiniciarVidas() {
+        vidas = 3;
     }
 
 }
