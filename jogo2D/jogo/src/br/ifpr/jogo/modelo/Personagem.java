@@ -1,6 +1,5 @@
 package br.ifpr.jogo.modelo;
 
-import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;

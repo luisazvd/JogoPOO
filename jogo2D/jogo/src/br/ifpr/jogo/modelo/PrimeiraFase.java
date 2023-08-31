@@ -18,13 +18,12 @@ public class PrimeiraFase extends Fases {
     protected static final int ALTURA_DA_JANELA = 542;
     protected static final int LARGURA_DA_JANELA = 1100;
     private boolean podeAtirar = true;
-    private ArrayList<Inimigo> inimigos;
     private int temporizador = 0;
-    private int QUANTIDADE_INIMIGOS = 15;
     boolean emJogo = true;
     private int pontuacao = 0;
     private Image imagemVida;
     private ArrayList<Image> vidasImagens;
+    private Image fimJogo;
 
 
     public PrimeiraFase() {
@@ -45,6 +44,10 @@ public class PrimeiraFase extends Fases {
             vidasImagens.add(imagemVida);
         }
 
+        ImageIcon carregandoFim = new ImageIcon("imagens/fimdejogo.png");
+        this.fimJogo = carregandoFim.getImage();
+
+
         this.inicializaInimigos();
         this.inicializaElementosGraficosAdicionais();
 
@@ -60,7 +63,7 @@ public class PrimeiraFase extends Fases {
 
         for (int i = 0; i < QUANTIDADE_INIMIGOS; i++) {
             int y = (int) (Math.random() * 800 - 1024);
-            int x = (int) (Math.random() * 650 + 30);
+            int x = (int) (Math.random() * 900 + 50);
             Inimigo inimigo = new Inimigo(x, y);
             inimigos.add(inimigo);
         }
@@ -107,7 +110,7 @@ public void inicializaElementosGraficosAdicionais() {
                 graphics.drawImage(inimigo.getImagem(), inimigo.getPosicaoEmX(), inimigo.getPosicaoEmY(), this);
             }
         } else {
-            verificarVidas();
+            graphics.drawImage(fimJogo, 0, 0, null);
         }
 
         graphics.setColor(Color.GRAY);
@@ -216,7 +219,6 @@ public void inicializaElementosGraficosAdicionais() {
             personagem.setVisivel(true);
             personagem.reiniciarVidas();
             pontuacao = 0;
-            fundo1 = fundo1;
             inicializaInimigos();
             
             
@@ -253,7 +255,6 @@ public void inicializaElementosGraficosAdicionais() {
             }
                 this.personagem.setVisivel(false);
                 inimigo.setVisivel(false);
-                pontuacao = 0;
                 personagem.reduzirVida();
 
             }

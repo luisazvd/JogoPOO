@@ -4,12 +4,12 @@ import java.awt.Image;
 import java.awt.Rectangle;
 
 public abstract class ElementoGrafico {
-private int posicaoEmX;
-private int posicaoEmY;
-private Image imagem;
-private int larguraImagem;
-private int alturaImagem;
-private boolean visivel = true;
+    private int posicaoEmX;
+    private int posicaoEmY;
+    private Image imagem;
+    private int larguraImagem;
+    private int alturaImagem;
+    private boolean visivel = true;
 
     public boolean isVisivel() {
         return this.visivel;
@@ -24,7 +24,8 @@ private boolean visivel = true;
     }
 
     public Rectangle getRectangle() {
-        return new Rectangle(this.getPosicaoEmX(), this.getPosicaoEmY(), this.getImagem().getWidth(null), this.getImagem().getHeight(null));
+        return new Rectangle(this.getPosicaoEmX(), this.getPosicaoEmY(), this.getImagem().getWidth(null),
+                this.getImagem().getHeight(null));
     }
 
     public int getPosicaoEmX() {

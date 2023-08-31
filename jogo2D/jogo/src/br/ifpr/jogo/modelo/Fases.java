@@ -12,7 +12,7 @@ import javax.swing.Timer;
 public abstract class Fases extends JPanel implements ActionListener, KeyListener {
     public static final int DELAY = 5;
     public static final int ALTURA_DA_JANELA = 542;
-    public static final int QUANTIDADE_INIMIGOS = 55;
+    public static final int QUANTIDADE_INIMIGOS = 20;
     public int QUANTIDADE_NVMAE = 2;
 
     protected Image fundo1, fundo2;
