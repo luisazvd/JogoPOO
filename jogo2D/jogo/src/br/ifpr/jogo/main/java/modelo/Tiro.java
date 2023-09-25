@@ -1,4 +1,4 @@
-package br.ifpr.jogo.modelo;
+package br.ifpr.jogo.main.java.modelo;
 
 import javax.swing.ImageIcon;
 
@@ -13,7 +13,7 @@ public class Tiro extends ElementoGrafico {
     }
 
     public void carregar() {
-        ImageIcon carregando = new ImageIcon("imagens/flecha.png");
+        ImageIcon carregando = new ImageIcon("jogo2D/jogo/src/br/ifpr/jogo/main/java/resources/flecha.png");
         this.setImagem(carregando.getImage());
         this.setAlturaImagem(this.getImagem().getWidth(null));
         this.setLarguraImagem(this.getImagem().getHeight(null));

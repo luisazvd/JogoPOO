@@ -1,4 +1,4 @@
-package br.ifpr.jogo.modelo;
+package br.ifpr.jogo.main.java.modelo;
 
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
@@ -31,7 +31,7 @@ public class Personagem extends ElementoGrafico {
     }
 
     public void carregar() {
-        ImageIcon carregador = new ImageIcon("imagens\\pnave.png");
+        ImageIcon carregador = new ImageIcon("jogo2D/jogo/src/br/ifpr/jogo/main/java/resources/pnave.png");
         setImagem(carregador.getImage());
         setAlturaImagem(getImagem().getWidth(null));
         setLarguraImagem(getImagem().getHeight(null));

@@ -1,4 +1,4 @@
-package br.ifpr.jogo.modelo;
+package br.ifpr.jogo.main.java.modelo;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -28,23 +28,23 @@ public class PrimeiraFase extends Fases {
 
     public PrimeiraFase() {
         super();
-        ImageIcon carregandoFundo1 = new ImageIcon("imagens/fundo.jpg");
+        ImageIcon carregandoFundo1 = new ImageIcon("jogo2D/jogo/src/br/ifpr/jogo/main/java/resources/fundo.jpg");
         this.fundo1 = carregandoFundo1.getImage();
 
         personagem = new Personagem();
         personagem.carregar();
 
-        ImageIcon carregandoFundo2 = new ImageIcon("imagens/fundo2.png");
+        ImageIcon carregandoFundo2 = new ImageIcon("jogo2D/jogo/src/br/ifpr/jogo/main/java/resources/fundo2.png");
         this.fundo2 = carregandoFundo2.getImage();
 
-        ImageIcon carregadorVida = new ImageIcon("imagens/escudo.png");
+        ImageIcon carregadorVida = new ImageIcon("jogo2D/jogo/src/br/ifpr/jogo/main/java/resources/escudo.png");
         imagemVida = carregadorVida.getImage();
         vidasImagens = new ArrayList<>();
         for (int i = 0; i < personagem.getVidas(); i++) {
             vidasImagens.add(imagemVida);
         }
 
-        ImageIcon carregandoFim = new ImageIcon("imagens/fimdejogo.png");
+        ImageIcon carregandoFim = new ImageIcon("jogo2D/jogo/src/br/ifpr/jogo/main/java/resources/fimdejogo.png");
         this.fimJogo = carregandoFim.getImage();
 
 

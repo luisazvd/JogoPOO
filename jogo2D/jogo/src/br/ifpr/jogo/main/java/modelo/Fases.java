@@ -1,4 +1,4 @@
-package br.ifpr.jogo.modelo;
+package br.ifpr.jogo.main.java.modelo;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;

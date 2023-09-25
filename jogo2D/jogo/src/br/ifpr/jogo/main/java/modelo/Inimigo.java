@@ -1,4 +1,4 @@
-package br.ifpr.jogo.modelo;
+package br.ifpr.jogo.main.java.modelo;
 
 
 import javax.swing.ImageIcon;
@@ -16,7 +16,7 @@ public class Inimigo extends ElementoGrafico{
     }
 
     public void carregar() {
-        ImageIcon loading = new ImageIcon("imagens/inimigo1.png");
+        ImageIcon loading = new ImageIcon("jogo2D/jogo/src/br/ifpr/jogo/main/java/resources/inimigo1.png");
         this.setImagem(loading.getImage());
         this.setAlturaImagem(this.getImagem().getWidth(null));
         this.setLarguraImagem(this.getImagem().getHeight(null));
